@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>blog</title>
+    <style>
+    </style>
+</head>
+
+<body style="background-color: #e6e2e1">
+
+<h1 style="font-size: 40px; text-align: center; font-family: sans-serif; padding: 20px;">LEETCODE SOLUTIONS</h1>
+
+
+<div style=" background-color: white; text-align: center; margin: 30px;">
+    <h1>1. Two Sum</h1>
+    <h5>Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+        You may assume that each input would have exactly one solution, and you may not use the same element twice.
+        You can return the answer in any order.</h5>
+
+    <br>
+
+    <p>In Java: </p>
+    <p style="text-align: left; padding: 50px">
+        <code>
+            class Solution { <br>
+            public int[] twoSum(int[] nums, int target) {<br><br>
+
+            for(int i = 0; i < nums.length; i++){<br>
+            for(int j = i + 1; j < nums.length; j++){<br>
+            if(nums[i] == target - nums[j]){<br>
+            return new int[] {i,j};<br>
+            }<br>
+            }<br>
+            }<br>
+            throw new IllegalArgumentException("Wrong");<br>
+            }<br> <br>
+
+            }
+        </code>
+    </p>
+
+</div>
+
+<div style=" background-color: white; text-align: center; margin: 30px;">
+<h1 style="background-color: white;">74. Search a 2D Matrix</h1>
+<h5>Write an efficient algorithm that searches for a value target in an m x n integer matrix "matrix". This matrix has the following properties:
+    Integers in each row are sorted from left to right.
+    The first integer of each row is greater than the last integer of the previous row.</h5>
+
+<br>
+
+<p>In Java: </p>
+    <p style="text-align: left; padding: 50px">
+        <code>
+        class Solution { <br> <br>
+        public boolean searchMatrix(int[][] matrix, int target) {<br> <br>
+        int row = matrix.length-1;<br>
+        int col = 0;<br> <br>
+
+        while(col < matrix[0].length && row>=0){<br>
+        if(matrix[row][col]> target){<br>
+        row--;<br>
+        }<br>
+        else if(matrix[row][col] < target){<br>
+        col++;<br>
+        }<br>
+        else{<br>
+        return true;<br>
+        }<br>
+        }<br> <br>
+
+        return false;<br>
+        }<br>
+        }<br>
+        </code>
+    </p>
+</div>
+
+<div style=" background-color: white; text-align: center; margin: 30px;">
+    <h1 style="background-color: white;">1351. Count Negative Numbers in a Sorted Matrix</h1>
+    <h5>Given a m x n matrix "grid" which is sorted in non-increasing order both row-wise and column-wise, return the number of negative numbers in grid.</h5>
+
+    <br>
+
+    <p>In Java: </p>
+    <p style="text-align: left; padding: 50px">
+        <code>
+            class Solution{<br>
+            public int countNegatives(int[][] grid) {<br><br>
+            int rows = grid.length, cols = grid[0].length;<br>
+            int result = 0;<br><br>
+            for (int i = 0; i < rows; i++) {<br>
+            if (grid[i][0] < 0) {<br>
+            result+=cols;<br>
+            continue;<br>
+            }<br><br>
+            if (grid[i][cols - 1] > 0){<br>
+            continue;<br>
+            }<br><br>
+            int l = 0, r = cols - 1;<br>
+            while (l <= r) {<br>
+            int m = (l + r)/2;<br>
+            if (grid[i][m] < 0) {<br>
+            r = m - 1;<br>
+            } else{<br>
+            l = m + 1;<br>
+            }<br>
+            }<br><br>
+            result += (cols - l);<br>
+            }<br><br>
+            return result;<br>
+            }<br>
+            }<br>
+        </code>
+    </p>
+</div>
+
+<h2 style="text-align: center">Contact Me!</h2>
+<iframe style="background-color: white; margin: auto" src="form2.html" height="200px" width="100%"></iframe>
+
+</body>
+</html>
